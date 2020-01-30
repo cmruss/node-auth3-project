@@ -5,7 +5,8 @@ const restricted = require('../auth/auth-middleware');
 
 //** ENDPOINT /api/users */
 router.get('/', restricted, (req, res) => {
-    USERS.find()
+    console.log(req.user)
+    USERS.findBy(req.user)
         .then(users => {
             res.json(users);
         })

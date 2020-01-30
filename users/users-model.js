@@ -10,13 +10,13 @@ module.exports = {
 async function add(user) {
     const [id] = await db('users')
         .insert(user);
-        
+
     return findById(id)
 };
 
 function find() {
     return db('users')
-        .select('id', 'username', 'password');
+        .select('id', 'username', 'password', 'department');
 };
 
 function findBy(prop) {
